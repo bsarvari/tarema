@@ -1,6 +1,6 @@
 # tarema
 
-Source files for the [tarema.org] website. Tarema is a foundation for the Christian community of Taksony, Hungary.
+Source files for the [http://tarema.org] website. Tarema is a foundation for the Christian community of Taksony, Hungary.
 
 ### Prerequisites
 * java 7
