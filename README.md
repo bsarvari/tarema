@@ -25,5 +25,5 @@ The locally running app will be availabe at http://localhost:8080/
 
 ### Publishing the app to the Google cloud 
 `mvn appengine:update`
-
+                                                                         
 Requires permissions granted by the owner of this project.
