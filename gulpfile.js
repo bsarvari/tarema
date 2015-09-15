@@ -69,16 +69,10 @@ gulp.task('copy', function () {
   return gulp.src([
     'src/main/frontend/*',
     '!src/main/frontend/*.html',
-    'node_modules/apache-server-configs/dist/.htaccess'
+    '!src/main/frontend/*.jsp' // the gulp jsp task will take care of the jsp resources
   ], {
     dot: true
   }).pipe(gulp.dest('target/dist'))
-    .pipe($.size({title: 'copy'}));
-});
-
-gulp.task('cimg', function () {
-  return gulp.src('src/main/frontend/images/**/*')
-    .pipe(gulp.dest('target/dist/images'))
     .pipe($.size({title: 'copy'}));
 });
 
@@ -114,7 +108,7 @@ gulp.task('styles', function () {
 
 // Scan your HTML for assets & optimize them
 gulp.task('html', function () {
-  var assets = $.useref.assets({searchPath: '{.tmp,app}'}); // TODO do we need to change 'app' here to refer to frontend?
+  var assets = $.useref.assets({searchPath: '.tmp'});
 
   return gulp.src('src/main/frontend/**/*.html')
     .pipe(assets)
@@ -148,6 +142,15 @@ gulp.task('html', function () {
     // Output files
     .pipe(gulp.dest('target/dist'))
     .pipe($.size({title: 'html'}));
+});
+
+gulp.task('jsp', function () {
+  return gulp.src('src/main/frontend/**/*.jsp')
+    // Minify any HTML
+    .pipe($.minifyHtml({quotes: true, spare: true}))
+    // Output files
+    .pipe(gulp.dest('target/dist'))
+    .pipe($.size({title: 'jsp'}));
 });
 
 // Clean output directory
@@ -187,14 +190,14 @@ gulp.task('serve:dist', ['default'], function () {
 
 // Build production files, the default task
 gulp.task('default', ['clean'], function (cb) {
-  runSequence('styles', ['jshint', 'html', 'scripts', 'images', 'fonts', 'copy'], cb);
+  runSequence('styles', ['jshint', 'html', 'jsp', 'scripts', 'images', 'fonts', 'copy'], cb);
 });
 
 // Run PageSpeed Insights
 gulp.task('pagespeed', function (cb) {
-  // Update the below URL to the public URL of your site
-  pagespeed.output('example.com', {
-    strategy: 'mobile'
+  // The public URL of your site
+  pagespeed.output('tarema.org', {
+    strategy: 'desktop'
     // By default we use the PageSpeed Insights free (no API key) tier.
     // Use a Google Developer API key if you have one: http://goo.gl/RkN0vE
     // key: 'YOUR_API_KEY'

@@ -8,8 +8,8 @@ This work is a Java web application based on Google's WSK (Web Starter Kit) and 
 Make sure the following tools are installed on your machine to build the tarema website.
  
 * java 7
-* maven 3.2.5
-* google appengine (GAE) 1.9.20
+* maven 3.2
+* google appengine (GAE) -- latest version
   
 Optional tools: node, npm and gulp. If installed running gulp for assorted purposes in the root folder will be possible.   
 

@@ -12,7 +12,7 @@
 
   <properties>
     <appengine.app.version>1</appengine.app.version>
-    <appengine.target.version>1.9.20</appengine.target.version>
+    <appengine.target.version>1.9.26</appengine.target.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
@@ -67,30 +67,6 @@
 
     <plugins>
       <plugin>
-        <artifactId>maven-resources-plugin</artifactId>
-        <version>2.7</version>
-        <executions>
-          <execution>
-            <id>copy-resources</id>
-            <!-- here the phase you need -->
-            <phase>prepare-package</phase>
-            <goals>
-              <goal>copy-resources</goal>
-            </goals>
-            <configuration>
-              <outputDirectory>${basedir}/target/extra-resources</outputDirectory>
-              <resources>
-                <resource>
-                  <directory>src/non-packaged-resources</directory>
-                  <filtering>true</filtering>
-                </resource>
-              </resources>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-
-      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
         <version>2.3</version>
@@ -121,14 +97,15 @@
       </plugin>
 
       <plugin>
+        <!-- The gulp build is entirely controlled by gulpfile.js -->
         <groupId>com.github.eirslett</groupId>
         <artifactId>frontend-maven-plugin</artifactId>
         <!-- NB! Set <version> to the latest released version of frontend-maven-plugin, like in README.md -->
         <version>0.0.23</version>
 
         <!-- optional -->
-        <!--+configuration>
-            <workingDirectory>src/main/frontend</workingDirectory>
+        <!--configuration>
+            <workingDirectory>directory_of_gulpfile.js</workingDirectory>
         </configuration-->
         <executions>
           <execution>
