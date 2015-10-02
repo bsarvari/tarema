@@ -76,6 +76,13 @@ gulp.task('copy', function () {
     .pipe($.size({title: 'copy'}));
 });
 
+gulp.task('docs', function () {
+  return gulp.src([
+    'src/main/frontend/docs/*'
+  ]).pipe(gulp.dest('target/dist/docs'))
+    .pipe($.size({title: 'docs'}));
+});
+
 // Copy web fonts to dist
 gulp.task('fonts', function () {
   return gulp.src(['src/main/frontend/fonts/**'])
@@ -190,7 +197,7 @@ gulp.task('serve:dist', ['default'], function () {
 
 // Build production files, the default task
 gulp.task('default', ['clean'], function (cb) {
-  runSequence('styles', ['jshint', 'html', 'jsp', 'scripts', 'images', 'fonts', 'copy'], cb);
+  runSequence('styles', ['jshint', 'html', 'jsp', 'scripts', 'images', 'fonts', 'docs', 'copy'], cb);
 });
 
 // Run PageSpeed Insights
