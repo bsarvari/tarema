@@ -93,6 +93,8 @@
         <artifactId>appengine-maven-plugin</artifactId>
         <version>${appengine.target.version}</version>
         <configuration>
+          <port>8181</port>
+          <address>0.0.0.0</address>
         </configuration>
       </plugin>
 
