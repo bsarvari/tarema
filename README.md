@@ -7,12 +7,14 @@ This work is a Java web application based on Google's WSK (Web Starter Kit) and 
 ## Prerequisites
 Make sure the following tools are installed on your machine to build the tarema website.
  
-* java 7
-* maven 3.2
+* java 8+
+* maven 3.5+
 * google appengine (GAE) -- latest version
   
 Optional tools: node, npm and gulp. If installed running gulp for assorted purposes in the root folder will be possible.   
 
+For install and usage notes of appengine and maven see: https://cloud.google.com/appengine/docs/standard/java/tools/maven
+ 
 ## Dev process
 ### Building the tarema war  
 `mvn clean install`
