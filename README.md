@@ -24,7 +24,7 @@ This downloads a local copy of node, npm and all the packages needed to execute 
 ### Testing the app in a web container
 `mvn appengine:devserver`
 
-The locally running app will be availabe at [http://localhost:8080/] (http://localhost:8080/)
+The locally running app will be availabe at [http://localhost:8080/](http://localhost:8080/)
 
 ### Publishing the app to the Google cloud 
 `mvn appengine:update`
