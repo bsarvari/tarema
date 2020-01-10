@@ -78,7 +78,7 @@ gulp.task('copy', function () {
 
 gulp.task('docs', function () {
   return gulp.src([
-    'src/main/frontend/docs/*'
+    'src/main/frontend/docs/**'
   ]).pipe(gulp.dest('target/dist/docs'))
     .pipe($.size({title: 'docs'}));
 });
