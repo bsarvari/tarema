@@ -10,6 +10,7 @@ Make sure the following tools are installed on your machine to build the tarema 
 * java 8+
 * maven 3.5+
 * google appengine (GAE) -- latest version
+* gcloud CLI
   
 Optional tools: node, npm and gulp. If installed running gulp for assorted purposes in the root folder will be possible.   
 
@@ -26,7 +27,24 @@ This downloads a local copy of node, npm and all the packages needed to execute 
 
 The locally running app will be availabe at [http://localhost:8080/](http://localhost:8080/)
 
-### Publishing the app to the Google cloud 
-`mvn appengine:update`
+### Publishing the app to the Google cloud
+You may have to re-authenticate:
+```shell script
+gcloud auth login
+``` 
+Increase version in `pom.xml`:
+```xml
+<deploy.version>{new_version}</deploy.version>
+```
+
+Deploy to google cloud
+```shell script
+mvn appengine:deploy
+```
                                                                          
 Requires permissions granted by the owner of this project.
+
+### Useful stuff
+https://cloud.google.com/appengine/docs/flexible/java/using-maven
+https://cloud.google.com/appengine/docs/flexible/java/how-to
+https://cloud.google.com/sdk/gcloud/reference
