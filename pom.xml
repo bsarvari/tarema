@@ -115,7 +115,7 @@
         <version>2.2.0</version>
         <configuration>
           <deploy.projectId>tarema-webapp</deploy.projectId>
-          <deploy.version>2</deploy.version>
+          <deploy.version>3</deploy.version>
         </configuration>
       </plugin>
       <plugin>
