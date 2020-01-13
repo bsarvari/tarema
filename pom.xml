@@ -119,9 +119,14 @@
         </configuration>
       </plugin>
       <plugin>
+        <!-- https://www.eclipse.org/jetty/documentation/9.4.x/jetty-maven-plugin.html -->
         <groupId>org.eclipse.jetty</groupId>
         <artifactId>jetty-maven-plugin</artifactId>
         <version>9.3.7.v20160115</version>
+        <configuration>
+          <!-- Does not work probably because jetty runs the app as a war and changes to the source files do not make it to the war without building it again. -->
+          <!--<scanIntervalSeconds>5</scanIntervalSeconds>-->
+        </configuration>
       </plugin>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>

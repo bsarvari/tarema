@@ -23,7 +23,7 @@ For install and usage notes of appengine and maven see: https://cloud.google.com
 This downloads a local copy of node, npm and all the packages needed to execute the gulp maven plugin. These will only be available for the maven process. Moreover all the maven dependencies will also be fetched. 
 
 ### Testing the app in a web container
-`mvn appengine:devserver`
+`mvn jetty:run-war`
 
 The locally running app will be availabe at [http://localhost:8080/](http://localhost:8080/)
 
